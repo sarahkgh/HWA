@@ -11,7 +11,15 @@ public interface UserRepo extends JpaRepository<User, Long> {
 	@Query(value = "SELECT * FROM user WHERE userName = ?1", nativeQuery = true)
 	Optional<User> findbyUsername(String userName);
 
-	@Query(value = "SELECT * FROM user WHERE firstJame = ?1", nativeQuery = true)
+	@Query(value = "SELECT * FROM user WHERE firstName = ?1", nativeQuery = true)
 	Optional<User> findbyFirstName(String firstName);
+
+	@Query(value = "SELECT * FROM user WHERE userId = ?1", nativeQuery = true)
+	Optional<User> findById(int userId);
+
+	@Query(value = "DELETE * FROM user WHERE userId = ?1", nativeQuery = true)
+	Optional<User> deleteById(int userId);
+
+	
 
 }
