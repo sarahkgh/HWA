@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.hwa.domain.User;
-import com.qa.hwa.service.UserServiceDB;
+import com.qa.hwa.service.UserService;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
 
-	private UserServiceDB service;
+	private UserService service;
 
-	public UserController(UserServiceDB service) {
+	public UserController(UserService service) {
 		this.service = service;
 	}
 

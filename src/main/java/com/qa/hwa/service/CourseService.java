@@ -10,11 +10,11 @@ import com.qa.hwa.exceptions.CourseNotFoundException;
 import com.qa.hwa.repo.CourseRepo;
 
 @Service
-public class CourseServiceDB {
+public class CourseService {
 	
 	private CourseRepo repo;
 	
-	public CourseServiceDB(CourseRepo repo) {
+	public CourseService(CourseRepo repo) {
 		this.repo = repo;
 	}
 	

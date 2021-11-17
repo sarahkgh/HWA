@@ -10,11 +10,11 @@ import com.qa.hwa.exceptions.UserNameTakenException;
 import com.qa.hwa.exceptions.UserNotFoundException;
 
 @Service
-public class UserServiceDB {
+public class UserService {
 
 	private UserRepo repo;
 
-	public UserServiceDB(UserRepo repo) {
+	public UserService(UserRepo repo) {
 		this.repo = repo;
 	}
 

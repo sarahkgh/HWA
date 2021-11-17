@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.hwa.domain.Course;
-import com.qa.hwa.service.CourseServiceDB;
+import com.qa.hwa.service.CourseService;
 
 
 @RestController
 @RequestMapping("/course")
 public class CourseController {
 
-	private CourseServiceDB service;
+	private CourseService service;
 
-	public CourseController(CourseServiceDB service) {
+	public CourseController(CourseService service) {
 		this.service = service;
 	}
 
