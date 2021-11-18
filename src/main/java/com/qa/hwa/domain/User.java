@@ -25,7 +25,15 @@ public class User {
 	public User(String firstName, String userName) {
 		this.firstName = firstName;
 		this.userName = userName;
+		
 
+	}
+
+	public User(long userId, String firstName, String userName) {
+		super();
+		this.userId = userId;
+		this.firstName = firstName;
+		this.userName = userName;
 	}
 
 }

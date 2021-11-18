@@ -5,36 +5,36 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.qa.hwa.domain.User;
 import com.qa.hwa.repo.UserRepo;
-
-@RunWith(MockitoJUnitRunner.class)
-@DataJpaTest
+//
+//@RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
+//@DataJpaTest
 public class UserServiceTests {
 
-	@InjectMocks
+	@Autowired
 	private UserService service;
 
-	@Mock
+	@MockBean
 	private UserRepo repo;
 
 	@Test
 	public void createTest() {
 		User input = new User("Sarah", "SarahKC");
-		User output = new User("Sarah", "SarahKC");
+		User output = new User(1l, "Sarah", "SarahKC");
 
 		Mockito.when(this.repo.save(input)).thenReturn(output);
-
+//		System.out.println(this.service.create(input));
 		assertEquals(output, this.service.create(input));
 		Mockito.verify(this.repo, Mockito.times(1)).save(input);
+		
 	}
 	
 	@Test

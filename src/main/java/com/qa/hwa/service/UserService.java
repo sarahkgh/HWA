@@ -19,7 +19,7 @@ public class UserService {
 	}
 
 	public User create(User user) {
-		return this.repo.saveAndFlush(user);
+		return this.repo.save(user);
 	}
 
 	public List<User> getAll() {
