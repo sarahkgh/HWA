@@ -1,13 +1,17 @@
 package com.qa.hwa.controller;
 
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -19,12 +23,17 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.qa.hwa.domain.Course;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultMatcher;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.hwa.domain.Course;
 import com.qa.hwa.domain.User;
+
 import com.qa.hwa.service.CourseService;
 
 @RunWith(SpringRunner.class)
@@ -42,6 +51,19 @@ public class CourseControllerUnitTest {
 	private CourseService service;
 	
 	@Test
+
+	public void createTest() throws Exception{
+		Course entry = new Course("Project Management", "This course is all the basics of project management. Beginner to Professional!");
+		String entryAsJSON = this.mapper.writeValueAsString(entry);
+		
+		Mockito.when(this.service.create(entry)).thenReturn(entry);
+		
+		mvc.perform(post("/course/create")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(entryAsJSON))
+				.andExpect(status().isCreated())
+				.andExpect(content().json(entryAsJSON));
+
 	public void createTest() throws Exception {
 		Course course = new Course(1l, "Project Management", "This course is all the basics of project management. Beginner to Professional!");
 		String courseAsJSON = this.mapper.writeValueAsString(course);
@@ -89,5 +111,6 @@ public class CourseControllerUnitTest {
 		//Assertion
 		this.mvc.perform(request).andExpect(checkStatus);
 		Mockito.when(this.service.delete(courseId)).thenReturn(del);
+
 	}
 }
