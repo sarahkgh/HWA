@@ -1,7 +1,0 @@
-DROP TABLE IF EXISTS `course`;
-CREATE TABLE `course`
-(
-`courseId` BITINT PRIMARY KEY AUTO_INCREMENT, 
-`courseName` VARCHAR(50) NOT NULL, 
-`courseDescription` VARCHAR(255) NOT NULL
-)
