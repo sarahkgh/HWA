@@ -55,7 +55,7 @@ public class UserControllerIntegrationTest {
 //
 //		this.mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
 //
-//	}
+//}
 //	
 //	@Test
 //	void testGet() throws Exception {

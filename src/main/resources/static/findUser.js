@@ -1,7 +1,7 @@
 'use strict';
 
 searchRequest = (userId) =>{
-    fetch(`https://localhost:9000/get/1${userId}`, {
+    fetch(`http://localhost:9000/user/get/1${userId}`, {
         method:'GET',
     })
     .then((response)=>{

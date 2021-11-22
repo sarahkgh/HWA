@@ -1,7 +1,7 @@
 'use strict';
 
 searchRequest = (courseId) =>{
-    fetch(`https://localhost:9000/get/1${courseId}`, {
+    fetch(`http://localhost:9000/course/get/1${courseId}`, {
         method:'GET',
     })
     .then((response)=>{

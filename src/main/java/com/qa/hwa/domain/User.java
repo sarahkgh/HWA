@@ -21,6 +21,10 @@ public class User {
 
 	@Column(nullable = false, unique = true)
 	private String userName;
+	
+	public User() {
+		super();
+	}
 
 	public User(String firstName, String userName) {
 		this.firstName = firstName;
@@ -35,5 +39,7 @@ public class User {
 		this.firstName = firstName;
 		this.userName = userName;
 	}
+
+	
 
 }

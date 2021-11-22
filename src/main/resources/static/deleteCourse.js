@@ -1,7 +1,7 @@
 'use strict';
 
 let deleteRequest = (courseId) => {
-    fetch(`https://localhost:9000/delete/2${courseId}`,{
+    fetch(`http://localhost:9000/course/delete/2${courseId}`,{
         method: 'DELETE'
     })
     .then((response) => {

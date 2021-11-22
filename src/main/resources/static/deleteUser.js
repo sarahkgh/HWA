@@ -1,7 +1,7 @@
 'use strict';
 
 let deleteRequest = (userId) => {
-    fetch(`https://localhost:9000/delete/2${userId}`,{
+    fetch(`https://localhost:9000/user/delete/2${userId}`,{
         method: 'DELETE'
     })
     .then((response) => {
