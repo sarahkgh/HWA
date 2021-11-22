@@ -21,11 +21,25 @@ public class User {
 
 	@Column(nullable = false, unique = true)
 	private String userName;
+	
+	public User() {
+		super();
+	}
 
 	public User(String firstName, String userName) {
 		this.firstName = firstName;
 		this.userName = userName;
+		
 
 	}
+
+	public User(long userId, String firstName, String userName) {
+		super();
+		this.userId = userId;
+		this.firstName = firstName;
+		this.userName = userName;
+	}
+
+	
 
 }
